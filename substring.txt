@@ -1,0 +1,24 @@
+echo "enter string"
+read s
+echo "enetr substring"
+read t
+count=0
+let l--
+for i in $($seq 0 $l)
+do
+ v=$i
+for j in $(seq $v $l)
+ do 
+  c=$c${s:$j:1}
+ if[$c=""]
+ then 
+     break
+fi
+if[$c = $t]
+  then
+      let count++
+fi
+done
+  c=""
+done
+echo $count
