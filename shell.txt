@@ -1,0 +1,106 @@
+sort
+ !#/bin/bash
+arr=($1 $2 $7 $3 $4)
+echo "array in given order"
+echo ${arr[*]}
+for((i=0;i<5;i++))
+ do
+   for((j=0;j=5-1-i;j++))
+   do
+ if[ ${arr[j]} -gt ${arr[$((j+1))]} ]
+then 
+temp=${arr[j]}
+${arr[j]}=${arr[$((j+1))]}
+${arr[$((j+1))]}=temp
+fi
+done
+done
+echo "sorted array"
+echo ${arr[*]}
+
+factorial
+
+factorial()
+prod=$1
+if ((prod>=2)
+then 
+echo $prod
+else
+f=$((prod-1))
+f=$(factorial $f)
+f=$((f*prod))
+
+echo $f
+fi
+}
+echo "enter num"
+read num
+if((num==0))
+then
+echo 1
+else
+echo "factorial is"
+echo factorial $num
+fi
+
+echo "Enter a number"
+read num
+factorial=1
+for((i=2;i<=num;i++)){
+  factorial=$((factorial * i))
+}
+echo $factorial
+
+prime
+
+#!/bin/bash
+echo "enter a number"
+read n
+for ((i = 2;i<=$n/2;i++))
+do
+    ans=$((n%i))
+    if [ $ans -eq 0 ]
+    then
+        echo "$n is not a prime number."
+        exit 0
+    fi
+done
+echo "$n is a prime number."
+
+
+reverse
+
+#!/bin/bash
+echo "enter a number"
+read n
+num=0
+temp=$n
+while (($temp>0))
+do
+    k=$((temp % 10))
+    num=$((num * 10))
+    num=$((num + k))
+    num=$((num * 10 +k))
+    temp=$((temp / 10))
+done
+echo "$num is reverse of $n."
+
+palindrome
+
+#! /bin/bash
+echo "Enter a Number";
+read n
+temp=$n
+while ((temp>0))
+   do
+      ans=$((ans*10))
+      mod=$((temp%10))
+      ans=$((ans+mod))
+      temp=$((temp/10))
+   done
+if (($n == $ans))
+   then
+      echo "$n is a Palindrome Number"
+   else
+   echo "$n is not a Palindrome Number"
+   fi
